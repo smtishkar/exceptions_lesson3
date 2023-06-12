@@ -1,3 +1,13 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -26,10 +36,44 @@ import java.util.Arrays;
  */
 public class aplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+    ArrayList<userData> custdate = new ArrayList<>();
         
-    System.out.println(Arrays.toString(getData.getDataFromUser()));
-    // System.out.println(getData.getDataFromUser());
+    String [] arr = getData.getDataFromUser();
+    long a = Long.parseLong(arr[4]);
+    LocalDate b = LocalDate.parse(arr[3]);
+    userData cust = new userData(arr[0],arr[1],arr[2],b,a,arr[5]); 
 
+    custdate.add(cust);
+    cust = new userData("dffs","dsfsdfsd","dsfsdf",b,a,arr[5]); 
+    custdate.add(cust);
+    
+    System.out.println(custdate);
+
+     try(FileWriter fw = new FileWriter("myfile.txt", true);
+     BufferedWriter bw = new BufferedWriter(fw);
+     PrintWriter out = new PrintWriter(bw))
+ {
+        for (int i = 0; i < arr.length; i++) {
+        if (i < arr.length - 1) out.print("< " + arr[i]+ " > ");
+        else {
+            out.print("< " + arr[i]+ " >;");
+            bw.newLine();
+        }
+        }
+
+ } catch (IOException e) {
+     //exception handling left as an exercise for the reader
+ }
+
+
+     
     }
+
+
+
+
+
 }
+
+
