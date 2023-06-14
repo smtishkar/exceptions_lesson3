@@ -20,7 +20,7 @@ public class getData {
             } else {
                 System.out.println("Вы ввели больше данных чем нужно");
             }
-            scanner.close();
+            // scanner.close();
 
         }
     }

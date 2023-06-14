@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -51,7 +52,7 @@ public class aplication {
             if (answer.matches("[y,Y]")) {
                 String[] arr = getData.getDataFromUser();
                 String[] parsedArray = parseData.parsingOfData(arr);
-                LocalDate dayOfBirthDate = LocalDate.parse(arr[3]);
+                LocalDate dayOfBirthDate= LocalDate.parse(arr[3], DateTimeFormatter.ofPattern("MM.dd.yyyy"));
                 long telNumber = Long.parseLong(arr[4]);
                 if (arr[5].matches("[f,F,m,M]")) {
                     userData cust = new userData(parsedArray[0], parsedArray[1], parsedArray[2], dayOfBirthDate,
