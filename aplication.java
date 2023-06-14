@@ -47,7 +47,7 @@ public class aplication {
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         while (flag == true) {
-            System.out.println("Хотите ли вы создать нового пользователя ('y'): ");
+            System.out.println("Хотите ли вы создать нового пользователя ('y/n'): ");
             String answer = scanner.nextLine();
             if (answer.matches("[y,Y]")) {
                 String[] arr = getData.getDataFromUser();
@@ -64,13 +64,15 @@ public class aplication {
                 } else {
                     System.out.println("Пол введен не в корретном формате. Попробуйте еще раз");
                 }
-            } else {
+            } else if (answer.matches("[n,N]")){
                 System.out.println("Спасибо, что воспользовались нашим приложением");
                 System.out.println("Это массив всех созданных объектов " + custdate);
                 scanner.close();
                 flag = false;
-
+            } else {
+                System.out.println("вы ввели не корретный символ");
             }
+
         }
     }
 
