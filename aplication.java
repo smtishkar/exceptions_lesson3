@@ -46,25 +46,26 @@ public class aplication {
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         while (flag == true) {
-            System.out.println("Хотите ли вы создать нового пользователя: ");
+            System.out.println("Хотите ли вы создать нового пользователя ('y'): ");
             String answer = scanner.nextLine();
-            if (answer.equals("y")) {
+            if (answer.matches("[y,Y]")) {
                 String[] arr = getData.getDataFromUser();
+                String[] parsedArray = parseData.parsingOfData(arr);
+                LocalDate dayOfBirthDate = LocalDate.parse(arr[3]);
+                long telNumber = Long.parseLong(arr[4]);
                 if (arr[5].matches("[f,F,m,M]")) {
-                    String[] parsedArray = parseData.parsingOfData(arr);
-                    long telNumber = Long.parseLong(arr[4]);
-                    LocalDate dayOfBirthDate = LocalDate.parse(arr[3]);
                     userData cust = new userData(parsedArray[0], parsedArray[1], parsedArray[2], dayOfBirthDate,
                             telNumber,
                             parsedArray[5]);
                     custdate.add(cust);
                     fileWrite.fileWrite(parsedArray);
+                    System.out.println("Запись о пользователе создана");
                 } else {
                     System.out.println("Пол введен не в корретном формате. Попробуйте еще раз");
                 }
             } else {
                 System.out.println("Спасибо, что воспользовались нашим приложением");
-                System.out.println(custdate);
+                System.out.println("Это массив всех созданных объектов " + custdate);
                 scanner.close();
                 flag = false;
 

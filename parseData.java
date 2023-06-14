@@ -1,7 +1,5 @@
 import java.time.LocalDate;
 
-import org.w3c.dom.ranges.RangeException;
-
 public class parseData {
 
     public static String[] parsingOfData(String[] arr) {

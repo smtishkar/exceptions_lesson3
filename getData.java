@@ -12,18 +12,17 @@ public class getData {
                     "Введите следующие данные в указанном порядке и формате разделяя данные пробелом: ФИО, дата рождения (dd.mm.yyyy), номер телефона (79031253486), пол (f/m): ");
             String data = scanner.nextLine();
             String[] arr = data.split(" ");
-            if (arr.length == 6){
+            if (arr.length == 6) {
                 return arr;
-            }
-            else if (arr.length < 6 ) {
-                 
-                    System.out.println("Вы ввели не все данные");
+            } else if (arr.length < 6) {
+
+                System.out.println("Вы ввели не все данные");
             } else {
                 System.out.println("Вы ввели больше данных чем нужно");
             }
-            
+            scanner.close();
+
         }
     }
 
-    
 }

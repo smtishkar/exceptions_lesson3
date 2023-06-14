@@ -1,5 +1,5 @@
-public class fileNotExistException extends Exception{
-    public fileNotExistException  (String message) {
+public class fileNotExistException extends Exception {
+    public fileNotExistException(String message) {
         super(message);
     }
 

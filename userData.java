@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class userData {
     private String lastName;
@@ -9,7 +8,8 @@ public class userData {
     private long phoneNumber;
     private String gender;
 
-    public userData (String lastName, String firstname, String middlename, LocalDate dateOfBirth, long phoneNumber, String gender) {
+    public userData(String lastName, String firstname, String middlename, LocalDate dateOfBirth, long phoneNumber,
+            String gender) {
         this.lastName = lastName;
         this.firstname = firstname;
         this.middlename = middlename;
@@ -17,7 +17,6 @@ public class userData {
         this.phoneNumber = phoneNumber;
         this.gender = gender;
     }
-
 
     public String getLastName() {
         return lastName;
@@ -66,6 +65,5 @@ public class userData {
     public void setGender(String gender) {
         this.gender = gender;
     }
-
 
 }
