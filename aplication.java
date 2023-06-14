@@ -44,18 +44,31 @@ public class aplication {
         ArrayList<userData> custdate = new ArrayList<>();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Хотите ли вы создать нового пользователя: ");
-        String answer = scanner.nextLine();
-        while (answer == "y") {
+        boolean flag = true;
+        while (flag == true) {
+            System.out.println("Хотите ли вы создать нового пользователя: ");
+            String answer = scanner.nextLine();
+            if (answer.equals("y")) {
+                String[] arr = getData.getDataFromUser();
+                if (arr[5].matches("[f,F,m,M]")) {
+                    String[] parsedArray = parseData.parsingOfData(arr);
+                    long telNumber = Long.parseLong(arr[4]);
+                    LocalDate dayOfBirthDate = LocalDate.parse(arr[3]);
+                    userData cust = new userData(parsedArray[0], parsedArray[1], parsedArray[2], dayOfBirthDate,
+                            telNumber,
+                            parsedArray[5]);
+                    custdate.add(cust);
+                    fileWrite.fileWrite(parsedArray);
+                } else {
+                    System.out.println("Пол введен не в корретном формате. Попробуйте еще раз");
+                }
+            } else {
+                System.out.println("Спасибо, что воспользовались нашим приложением");
+                System.out.println(custdate);
+                scanner.close();
+                flag = false;
 
-            String[] arr = getData.getDataFromUser();
-            String[] parsedArray = parseData.parsingOfData(arr);
-            long telNumber = Long.parseLong(arr[4]);
-            LocalDate dayOfBirthDate = LocalDate.parse(arr[3]);
-            userData cust = new userData(parsedArray[0], parsedArray[1], parsedArray[2], dayOfBirthDate, telNumber,
-                    parsedArray[5]);
-            custdate.add(cust);
-            fileWrite.fileWrite(parsedArray);
+            }
         }
     }
 

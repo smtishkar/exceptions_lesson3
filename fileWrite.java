@@ -7,7 +7,9 @@ import java.io.PrintWriter;
 public class fileWrite {
     public static void fileWrite(String [] arr) throws fileNotExistException, IOException {
         
-        try (FileWriter fw = new FileWriter("myfile.txt", true);
+        String name = arr[0]+".txt";
+        // try (FileWriter fw = new FileWriter("myfile.txt", true); // Файла создается с постоянным именем, при этом всегда происходт дозапись в текущий файл
+        try (FileWriter fw = new FileWriter(name, true); // Файл создается с назвыанием фамилии (как указанно в задании)
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter out = new PrintWriter(bw)) {
             for (int i = 0; i < arr.length; i++) {

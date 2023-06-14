@@ -1,21 +1,17 @@
 import java.time.LocalDate;
 
+import org.w3c.dom.ranges.RangeException;
+
 public class parseData {
 
-    public static String [] parsingOfData(String [] arr) {
+    public static String[] parsingOfData(String[] arr) {
         try {
-        long telNumber = Long.parseLong(arr[4]);
-        LocalDate dayOfBirthDate = LocalDate.parse(arr[3]);
-        if (!arr[5].matches("[f,F,m,M]")){
-            System.out.println("Не верно введен пол. Попробуйте еще раз");
-            getData.getDataFromUser();
-        }
-        
-        } catch (Exception e) {
-        System.out.println("Данные введены не в корректном формате (телефон или дата рождения)");
+            LocalDate.parse(arr[3]);
+            Long.parseLong(arr[4]);
+        } catch (RuntimeException e) {
+            System.out.println(e + " Данные введены не в корректном формате (телефон или дата рождения)");
         }
         return arr;
-        
     }
-    
+
 }
