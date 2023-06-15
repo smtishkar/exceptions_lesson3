@@ -52,7 +52,7 @@ public class aplication {
             if (answer.matches("[y,Y]")) {
                 String[] arr = getData.getDataFromUser();
                 String[] parsedArray = parseData.parsingOfData(arr);
-                LocalDate dayOfBirthDate= LocalDate.parse(arr[3], DateTimeFormatter.ofPattern("MM.dd.yyyy"));
+                LocalDate dayOfBirthDate = LocalDate.parse(arr[3], DateTimeFormatter.ofPattern("MM.dd.yyyy"));
                 long telNumber = Long.parseLong(arr[4]);
                 if (arr[5].matches("[f,F,m,M]")) {
                     userData cust = new userData(parsedArray[0], parsedArray[1], parsedArray[2], dayOfBirthDate,
@@ -64,7 +64,7 @@ public class aplication {
                 } else {
                     System.out.println("Пол введен не в корретном формате. Попробуйте еще раз");
                 }
-            } else if (answer.matches("[n,N]")){
+            } else if (answer.matches("[n,N]")) {
                 System.out.println("Спасибо, что воспользовались нашим приложением");
                 System.out.println("Это массив всех созданных объектов " + custdate);
                 scanner.close();

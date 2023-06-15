@@ -2,7 +2,6 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-
 public class parseData {
 
     public static String[] parsingOfData(String[] arr) {
